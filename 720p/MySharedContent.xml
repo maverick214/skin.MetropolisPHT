@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<window id="100">
+	<defaultcontrol>56</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+ 	<include>Global_Background</include>
+ 	<include>Global_VideoPlot</include>
+		<!-- Background -->
+		<control type="group">
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<control type="image">
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<texture>frames/ClassicFrame_Background.png</texture>
+				<colordiffuse>FrameBackgroundDiffuse</colordiffuse>
+			</control>
+			<control type="largeimage">
+				<texture background="true">home/default.jpg</texture>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<fadetime>1000</fadetime>
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<animation effect="fade" time="800" delay="300">Hidden</animation>
+			</control>
+		</control>
+<!--  Server name -->
+
+		<control type="label">
+			<align>center</align>
+			<posx>69</posx>
+			<posy>88</posy>
+			<font>METF_HomeMenu</font>
+			<textcolor>HomeMenuText</textcolor>
+			<width>1123</width>
+			<height>33</height>
+			<animation effect="fade" start="0" end="80" time="800" delay="0">WindowOpen</animation>
+			<animation effect="fade" end="50" time="200" delay="0">Visible</animation>
+			<animation effect="fade" start="50" end="0" time="1000" delay="500">Hidden</animation>
+			<textcolor>FFffffff</textcolor>
+			<label>$INFO[ListItem.Property(sourceTitle)] $INFO[ListItem.Property(serverName)]</label>
+		</control>
+			<control type="videowindow">
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="image">
+				<posx>215</posx>
+				<posy>25</posy>
+				<width>848</width>
+				<height>507</height>
+				<texture>frames/ClassicFrame_Fanart.png</texture>
+			</control>
+<!--
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<posx>0</posx>
+			<posy>0</posy>
+			<visible>!Container.OnNext + !Container.OnPrevious</visible>
+			<animation effect="fade" start="0" end="80" time="400" delay="300" condition="Control.HasFocus(56)" reversible="false">Conditional</animation>
+			<animation effect="fade" start="0" end="80" time="2000" delay="0">WindowOpen</animation>
+			<animation effect="fade" start="30" end="80" time="400" delay="0">Visible</animation>
+			<animation effect="fade" start="80" end="30" time="400">Hidden</animation>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb0]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb0)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb2]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb2)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb4]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb4)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb4]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb4)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb1]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb1)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb1]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb1)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb3]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb3)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb3]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb3)</visible>
+			</control>
+		</control>
+
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<posx>0</posx>
+			<posy>500</posy>
+			<visible>!Container.OnNext + !Container.OnPrevious</visible>
+			<animation effect="fade" start="0" end="80" time="400" delay="300" condition="Control.HasFocus(56)" reversible="false">Conditional</animation>
+			<animation effect="fade" start="0" end="80" time="2000" delay="0">WindowOpen</animation>
+			<animation effect="fade" start="30" end="80" time="400" delay="0">Visible</animation>
+			<animation effect="fade" start="80" end="30" time="400">Hidden</animation>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb3]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb3)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb5]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb5)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb1]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb1)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb4]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb4)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb1]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb1)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb1]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb1)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(1).Thumb3]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(1).Thumb3)</visible>
+			</control>
+			<control type="largeimage">
+				<fadetime>1500</fadetime>
+				<width max="300">auto</width>
+				<height>500</height>
+				<texture background="true">$INFO[ListItem(0).Thumb3]</texture>
+				<aspectratio scalediffuse="true" align="center" aligny="top">zoom</aspectratio>
+				<visible>!IsEmpty(ListItem(0).Thumb3)</visible>
+			</control>
+		</control>
+-->
+		<control type="group">
+			<!-- main list -->
+
+<!--
+				<control type="wraplist" id="56">
+					<posx>-250</posx>
+					<posy>0</posy>
+					<height>61</height>
+					<width>1520</width>
+					<viewtype>list</viewtype>
+					<orientation>horizontal</orientation>
+					<focusposition>2</focusposition>
+					<scrolltime>180</scrolltime>
+					<onright>56</onright>
+					<onleft>56</onleft>
+					<ondown>56</ondown>
+					<wraparound>true</wraparound>
+					<focusposition>0</focusposition>
+					<orientation>vertical</orientation>
+					<animation type="WindowOpen" condition="!Skin.HasSetting(nozooms)" reversible="false">
+						<effect type="slide" start="-1280" end="0" time="400" tween="quadratic" easing="out" />
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<itemlayout width="400" height="61">
+						<control type="label">
+							<include>MainMenu_Label</include>
+							<textcolor>48FFFFFF</textcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="400" height="61">
+						<control type="label">
+							<include>MainMenu_Label</include>
+							<textcolor>FFFFFFFF</textcolor>
+						</control>
+					</focusedlayout>
+					</control>
+			</control>
+-->
+		<!-- Main Menu -->
+			<control type="list" id="56">
+			<posx>0</posx>
+			<posy>50</posy>
+			<width>230</width>
+			<height>416</height>
+			<onup>56</onup>
+			<focuspostion>0</focuspostion>
+			<ondown>56</ondown>
+			<onleft>9002</onleft>
+			<onright>9000</onright>
+			<viewtype>list</viewtype>
+			<orientation>vertical</orientation>
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<itemlayout width="210" height="32">
+				<control type="label">
+					<posx>220</posx>
+					<posy>0</posy>
+					<width>210</width>
+					<height>32</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>HomeMenuText</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="220" height="32">
+				<!-- Focus Bar -->
+				<control type="image">
+					<posx>15</posx>
+					<posy>0</posy>
+					<width>215</width>
+					<height>32</height>
+					<aligny>center</aligny>
+					<texture flipx="true">FocusLine.png</texture>
+					<colordiffuse>FocusBar</colordiffuse>
+					<visible>!ControlGroup(9001).HasFocus() + ![Control.HasFocus(8000) | Control.HasFocus(8001)]</visible>
+				</control>
+				<control type="label">
+					<posx>220</posx>
+					<posy>0</posy>
+					<width>210</width>
+					<height>32</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>FocusBarText</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>!ControlGroup(9001).HasFocus() + ![Control.HasFocus(8000) | Control.HasFocus(8001)]</visible>
+				</control>
+				<control type="label">
+					<posx>220</posx>
+					<posy>0</posy>
+					<width>210</width>
+					<height>32</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>HomeMenuTextFocused</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>ControlGroup(9000).HasFocus() | Control.HasFocus(8000) | Control.HasFocus(8001)</visible>
+				</control>
+			</focusedlayout>
+			</control>
+
+
+			<!-- right side thumbs -->
+<!--
+			<control type="group">
+				<posx>280</posx>
+				<posy>440</posy>
+				<visible>!Container.OnNext + !Container.OnPrevious</visible>
+				<animation effect="fade" start="0" end="100" time="1000" delay="300" condition="Control.HasFocus(56)" reversible="false">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="2000" delay="0">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="0">Visible</animation>
+				<animation effect="fade" start="0" end="0" time="0">Hidden</animation>
+				<control type="grouplist">
+					<orientation>horizontal</orientation>
+					<itemgap>16</itemgap>					
+					<control type="image">
+						<width max="200">auto</width>
+						<height>300</height>
+						<texture background="true" diffuse="movie-poster/posterview_diffuse.png">$INFO[ListItem(0).Thumb0]</texture>
+						<aspectratio scalediffuse="true" align="center" aligny="center">keep</aspectratio>
+						<visible>!IsEmpty(ListItem(0).Thumb0)</visible>
+					</control>
+					<control type="image">
+						<width max="200">auto</width>
+						<height>300</height>
+						<texture background="true" diffuse="movie-poster/posterview_diffuse.png">$INFO[ListItem(0).Thumb1]</texture>
+						<aspectratio scalediffuse="true" align="center" aligny="center">keep</aspectratio>
+						<visible>!IsEmpty(ListItem(0).Thumb1)</visible>
+					</control>
+					<control type="image">
+						<width max="200">auto</width>
+						<height>300</height>
+						<texture background="true" diffuse="movie-poster/posterview_diffuse.png">$INFO[ListItem(0).Thumb2]</texture>
+						<aspectratio scalediffuse="true" align="center" aligny="center">keep</aspectratio>
+						<visible>!IsEmpty(ListItem(0).Thumb2)</visible>
+					</control>
+					<control type="grouplist">
+						<orientation>vertical</orientation>
+						<itemgap>16</itemgap>
+						<control type="image">
+							<width max="175">auto</width>
+							<height>130</height>
+							<texture background="true" diffuse="movie-poster/posterview_diffuse.png">$INFO[ListItem(0).Thumb3]</texture>
+							<aspectratio scalediffuse="true" align="center" aligny="bottom">keep</aspectratio>
+							<visible>!IsEmpty(ListItem(0).Thumb3)</visible>
+						</control>
+						<control type="image">
+							<width max="175">auto</width>
+							<height>130</height>
+							<texture background="true" diffuse="movie-poster/posterview_diffuse.png">$INFO[ListItem(0).Thumb4]</texture>
+							<aspectratio scalediffuse="true" align="center" aligny="center">keep</aspectratio>
+							<visible>!IsEmpty(ListItem(0).Thumb4)</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+-->
+		</control>
+		<include>Global_Time</include>
+		<include>Global_Heading</include>
+		<include>GlobalMusic</include>
+	</controls>
+</window>

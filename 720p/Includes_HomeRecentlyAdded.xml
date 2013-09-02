@@ -1,0 +1,504 @@
+<includes>
+	<include name="HomeRecentlyAddedInfo">
+		<!-- Submenu title for default home view -->
+		<control type="group">
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<visible>!Skin.HasSetting(home2)</visible>
+			<visible>[Control.HasFocus(300) | Control.HasFocus(11000) | Control.HasFocus(11002) | Control.HasFocus(11003) | Control.HasFocus(11004) | Control.HasFocus(11001)] + [Control.IsVisible(11000) | Control.IsVisible(11001) | Control.IsVisible(11002) | Control.IsVisible(11003) | Control.IsVisible(11004)] + !Skin.HasSetting(HideRecentlyAdded)</visible>
+			<control type="image">
+				<posx>238</posx>
+				<posy>510</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowLeft.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+				<visible>![Control.HasFocus(11000) | Control.HasFocus(11001) | Control.HasFocus(11002) | Control.HasFocus(11003) | Control.HasFocus(11004)]</visible>
+			</control>
+			<!-- Queue -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]MyPlex[/B]  </label>
+				<visible>[Control.HasFocus(11003) | [Control.HasFocus(300) + Control.IsVisible(11003)]] + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- Recommended -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]MyPlex[/B]  </label>
+				<visible>[Control.HasFocus(11004)] + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- My Plex Queue -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]MyPlex[/B]  </label>
+				<visible>[Control.HasFocus(11003) | [Control.HasFocus(300) + Control.IsVisible(11003)]] + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- Recent Channels -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]Recent Channels[/B]  </label>
+				<visible>[Control.HasFocus(11002) | [Control.HasFocus(300) + Control.IsVisible(11002)]] + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- Recently Added Movies -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]$LOCALIZE[20386][/B]  </label>
+				<visible>Container(11000).ListItem(0).Type(movie) + [Control.HasFocus(11000) | Control.HasFocus(300)] + Control.IsVisible(11000) + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- Recently Added Music -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]Recently Added Albums[/B]  </label>
+				<visible>Container(11000).ListItem(0).Type(album) + Control.IsVisible(11000) + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- Recently Added Episodes -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]$LOCALIZE[20387][/B]  </label>
+				<visible>Container(11000).ListItem(0).Type(episode) + Control.IsVisible(11000) + [Control.HasFocus(11000) | Control.HasFocus(300)] + !Skin.HasSetting(ShowRandomItems)</visible>
+			</control>
+			<!-- In Progress Movies -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]Movies In Progress[/B]  </label>
+				<visible>!Skin.HasSetting(ShowRandomItems) + Container(11001).ListItem(0).Type(movie) + !Control.IsVisible(11002) + !Control.IsVisible(11003) + [Control.HasFocus(11001) | [Control.HasFocus(300) + !Control.IsVisible(11000)]]</visible>
+			</control>
+			<!-- Next Episodes -->
+			<control type="label">
+				<posx>270</posx>
+				<posy>513</posy>
+				<width>580</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]Next Episodes[/B]  </label>
+				<visible>!Skin.HasSetting(ShowRandomItems) + Container(11001).ListItem(0).Type(episode) + !Control.IsVisible(11002) + !Control.IsVisible(11003) + [Control.HasFocus(11001) | [Control.HasFocus(300) + !Control.IsVisible(11000)]]</visible>
+			</control>
+		</control>
+
+		<!-- Submenu title for icon home view -->
+
+		<control type="group">
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<visible>Skin.HasSetting(home2) + [[Control.HasFocus(300) | Control.HasFocus(11000)] + Control.IsVisible(11000)] + !Skin.HasSetting(HideRecentlyAdded)</visible>
+			<control type="image">
+				<posx>625</posx>
+				<posy>45</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowUp.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+				<visible>![Control.HasFocus(11000) | Control.HasFocus(8001)]</visible>
+			</control>
+			<!-- Recently Added Movies -->
+			<control type="label">
+				<posx>355</posx>
+				<posy>75</posy>
+				<width>570</width>
+				<height>25</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]$LOCALIZE[20386][/B]</label>
+				<visible>Control.HasFocus(300) + Control.IsVisible(11000)</visible>
+			</control>
+			<!-- Recently Added Episodes -->
+			<control type="label">
+				<posx>355</posx>
+				<posy>75</posy>
+				<width>570</width>
+				<height>25</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>METF_RecentlyAddedTitle</font>
+				<textcolor>HomeMenuText</textcolor>
+				<label>[B]$LOCALIZE[20387][/B]</label>
+				<visible>Container(9000).HasFocus(5)</visible>
+			</control>
+		</control>
+
+		<control type="group" id="9002">
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(home2) + !ControlGroup(9002).HasFocus()">conditional</animation>
+			<animation effect="fade" start="0" end="100" delay="200" time="200" condition="Skin.HasSetting(home2) + ControlGroup(9002).HasFocus()">conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(home2) + ControlGroup(9002).HasFocus()">WindowClose</animation>
+			<visible>[Control.HasFocus(300) | Control.HasFocus(11000) | Control.HasFocus(11001) | Control.HasFocus(11002) | Control.HasFocus(11003) | Control.HasFocus(11004) | Control.HasFocus(9000)] + [Control.IsVisible(11000) | Control.IsVisible(11001) | Control.IsVisible(11002) | Control.IsVisible(11003)] + !Skin.HasSetting(HideRecentlyAdded)</visible>
+
+			<!-- Thumbnails -->
+
+			<control type="group">
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>555</posy>
+					<width>126</width>
+					<height>156</height>
+					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+					<texture diffuse="frames/EpisodeMatte.png">$INFO[Container(11000).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+					<fadetime>100</fadetime>
+					<visible>[!Skin.HasSetting(home2) + [Control.HasFocus(11000) | Control.HasFocus(300)] + Container(11000).ListItem.Type(movie)] + Control.IsVisible(11000)</visible> 
+				</control>
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>560</posy>
+					<width>250</width>
+					<height>140</height>
+					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+					<texture diffuse="frames/EpisodeMatte.png">$INFO[Container(11000).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + [Control.HasFocus(11000) | Control.HasFocus(300)] + Control.IsVisible(11000) + Container(11000).ListItem.Type(episode)</visible> 
+				</control>
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>555</posy>
+					<width>126</width>
+					<height>156</height>
+					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+					<texture diffuse="frames/EpisodeMatte.png">$INFO[Container(11001).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + Container(11001).ListItem(0).Type(movie) + [[Control.HasFocus(11001) + !Skin.HasSetting(ShowRandomItems)] | [Control.HasFocus(300) + !Control.IsVisible(11000)]] + !Control.IsVisible(11003) + !Control.IsVisible(11002)</visible>
+				</control>
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>560</posy>
+					<width>250</width>
+					<height>140</height>
+					<aspectratio scalediffuse="false" align="center">stretch</aspectratio>
+					<texture diffuse="frames/EpisodeMatte.png">$INFO[Container(11001).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>8</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + Container(11001).ListItem(0).Type(episode) + [[Control.HasFocus(11001) + !Skin.HasSetting(ShowRandomItems)] | [Control.HasFocus(300) + !Control.IsVisible(11000)]] + !Control.IsVisible(11003) + !Control.IsVisible(11002)</visible>
+				</control>
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>560</posy>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio scalediffuse="false" align="top">stretch</aspectratio>
+					<texture fallback="DefaultMusicAlbums.png" diffuse="frames/EpisodeMatte.png">$INFO[Container(11000).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>7</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + [Control.HasFocus(300) | Control.HasFocus(11000)] + Container(11000).ListItem(0).Type(album) + Control.IsVisible(11000)</visible> 
+				</control>
+
+<!-- Channels -->
+
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>560</posy>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio scalediffuse="false" align="top">stretch</aspectratio>
+					<texture fallback="DefaultMusicAlbums.png" diffuse="frames/EpisodeMatte.png">$INFO[Container(11002).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>7</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + [Control.HasFocus(300) | Control.HasFocus(11002)] + Control.IsVisible(11002)</visible> 
+				</control>
+
+<!-- Queue for 11003 -->
+
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>560</posy>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio scalediffuse="false" align="top">scale</aspectratio>
+					<texture fallback="DefaultMusicAlbums.png" diffuse="frames/EpisodeMatte.png">$INFO[Container(11003).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>7</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + [Control.HasFocus(300) | Control.HasFocus(11003)] + Control.IsVisible(11003)</visible> 
+				</control>
+<!-- Recommended for 11004 -->
+				<control type="image">
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="400" />
+					</animation>
+					<posx>265</posx>
+					<posy>560</posy>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio scalediffuse="false" align="top">scale</aspectratio>
+					<texture fallback="DefaultMusicAlbums.png" diffuse="frames/EpisodeMatte.png">$INFO[Container(11004).ListItem.Thumb]</texture>
+					<bordertexture border="6">frames/thumb_border.png</bordertexture>
+					<bordersize>7</bordersize>
+					<fadetime>100</fadetime>
+					<visible>!Skin.HasSetting(home2) + Control.HasFocus(11004) + Control.IsVisible(11004)</visible> 
+				</control>
+			</control>
+
+			<!-- Lists -->
+
+<!-- Recently Added Movies/Episode -->
+
+			<control type="group">
+				<visible allowhiddenfocus="true">[Control.HasFocus(300) | Control.HasFocus(11000)] + !Control.HasFocus(11001) + Control.IsVisible(11000)</visible>
+				<visible>[Container(11000).ListItem(0).Type(movie) | Container(11000).ListItem(0).Type(episode) | Container(11000).ListItem(0).Type(album)]</visible>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<animation effect="slide" start="0,0" end="100,0" time="0" condition="Container(11000).ListItem.Type(episode)">Conditonal</animation>
+				<posx>422</posx>
+				<posy>563</posy>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<control type="list" id="11000">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>510</width>
+					<height>135</height>
+					<onup>11000</onup>
+					<ondown>11000</ondown>
+					<onleft>300</onleft>
+					<onright>11001</onright>
+					<viewtype>list</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime>200</scrolltime>
+					<include>ListContents</include>
+				</control>
+			</control>
+
+<!-- In Progress Movies/Episode -->
+
+			<control type="group">
+				<visible allowhiddenfocus="true">Control.HasFocus(11001) | [Control.HasFocus(300) + !Control.IsVisible(11000)]</visible>
+				<visible>[Container(11001).ListItem(0).Type(movie) | Container(11001).ListItem(0).Type(episode)]</visible>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<animation effect="slide" start="0,0" end="100,0" time="0" condition="Container(11001).ListItem.Type(episode)">Conditonal</animation>
+				<posx>422</posx>
+				<posy>563</posy>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<control type="list" id="11001">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>510</width>
+					<height>135</height>
+					<onup>11001</onup>
+					<ondown>11001</ondown>
+					<onleft>11000</onleft>
+					<onright>300</onright>
+					<viewtype>list</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime>200</scrolltime>
+					<include>ListContents</include>
+				</control>
+			</control>
+
+<!-- Channels 11002 -->
+
+			<control type="group">
+				<visible allowhiddenfocus="true">[Control.HasFocus(300) | Control.HasFocus(11002)] + Control.IsVisible(11002)</visible>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<posx>422</posx>
+				<posy>563</posy>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<control type="list" id="11002">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>510</width>
+					<height>135</height>
+					<onup>11002</onup>
+					<ondown>11002</ondown>
+					<onleft>300</onleft>
+					<onright>300</onright>
+					<viewtype>list</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime>200</scrolltime>
+					<include>ListContents</include>
+				</control>
+			</control>
+
+<!-- Queue 11003 -->
+
+			<control type="group">
+				<visible allowhiddenfocus="true">[Control.HasFocus(300) | Control.HasFocus(11003)] + Control.IsVisible(11003)</visible>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<posx>422</posx>
+				<posy>563</posy>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<control type="list" id="11003">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>510</width>
+					<height>135</height>
+					<onup>11003</onup>
+					<ondown>11003</ondown>
+					<onleft>300</onleft>
+					<onright>11004</onright>
+					<viewtype>list</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime>200</scrolltime>
+					<include>ListContents</include>
+				</control>
+			</control>
+
+<!-- Recommended 11004 -->
+
+			<control type="group">
+				<visible allowhiddenfocus="true">Control.HasFocus(11004)</visible>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<posx>422</posx>
+				<posy>563</posy>
+				<include>Animation_OpenCloseFade</include>
+				<include>Animation_FadedByMenu</include>
+				<control type="list" id="11004">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>510</width>
+					<height>135</height>
+					<onup>11004</onup>
+					<ondown>11004</ondown>
+					<onleft>11003</onleft>
+					<onright>300</onright>
+					<viewtype>list</viewtype>
+					<orientation>vertical</orientation>
+					<scrolltime>200</scrolltime>
+					<include>ListContents</include>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="ListContents">
+		<itemlayout width="510" height="27">
+			<control type="label">
+				<posx>10</posx>
+				<posy>-2</posy>
+				<width>500</width>
+				<height>27</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>600</pauseatend>
+				<scrollspeed>20</scrollspeed>
+				<font>METF_RecentlyAddedListText</font>
+				<textcolor>RecentlyAddedNF</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout width="510" height="27">
+			<!-- Focus Bar -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>510</width>
+				<height>27</height>
+				<aligny>center</aligny>
+				<texture>FocusLine.png</texture>
+				<colordiffuse>FocusBar</colordiffuse>
+			</control>
+			<control type="label">
+				<posx>10</posx>
+				<posy>-2</posy>
+				<width>500</width>
+				<height>27</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>600</pauseatend>
+				<scrollspeed>20</scrollspeed>
+				<font>METF_RecentlyAddedListText</font>
+				<textcolor>FocusBarText</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</focusedlayout>
+	</include>
+
+</includes>

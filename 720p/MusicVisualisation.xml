@@ -1,0 +1,226 @@
+<window id="2006">
+	<allowoverlay>no</allowoverlay>
+	<onload condition="Skin.HasSetting(Artist_Slideshow)">RunScript(script.artistslideshow)</onload>
+	<defaultcontrol>-</defaultcontrol>
+	<controls>
+		<control type="visualisation" id="2">
+			<description>visualisation</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<include>Animation_BackdropFade</include>
+			<visible>!Skin.HasSetting(Artist_Slideshow)</visible>
+		</control>
+		<control type="multiimage" id="99">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+			<aspectratio>keep</aspectratio>
+			<timeperimage>10000</timeperimage>
+			<fadetime>2000</fadetime>
+			<randomize>true</randomize>
+			<include>Animation_BackdropFade</include>
+			<visible>Skin.HasSetting(Artist_Slideshow)</visible>
+		</control>
+		<control type="group">
+			<visible>Player.ShowInfo + !Window.IsVisible(120)</visible>
+			<animation type="Visible">
+				<effect type="fade" time="200" start="0" end="100" />
+				<effect type="slide" time="600" start="0,151" end="0,0" easing="out" tween="cubic" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="fade" time="200" start="100" end="0" />
+				<effect type="slide" time="600" start="0,0" end="0,151" easing="out" tween="cubic" />
+			</animation>
+			<control type="image">
+				<posx>0</posx>
+				<posy>460</posy>
+				<width>1280</width>
+				<height>260</height>
+				<texture>osd/OSDdialogback.png</texture>
+				<colordiffuse>OSDBackgroundColor</colordiffuse>
+			</control>
+			<control type="group">
+				<posx>-20</posx>
+				<posy>555</posy>
+				<animation effect="slide" start="-280" end="30" time="600" tween="cubic" easing="out" delay="400">WindowOpen</animation>
+				<animation effect="slide" start="30" end="-280" time="600" tween="cubic" easing="out" delay="800">WindowClose</animation> 
+				<visible>Skin.HasSetting(MusicCoverArtOverlay)</visible>
+				<control type="image" id="7026">
+					<width>180</width>
+					<height>180</height>
+					<posx>55</posx>
+					<posy>-70</posy>
+					<include>Animation_SpinningCD</include>
+				</control>
+				<control type="image">
+					<description>cover image</description>
+					<posx>-50</posx>
+					<posy>-80</posy>
+					<width>340</width>
+					<height>200</height>
+					<fadetime>200</fadetime>
+					<texture background="true">$INFO[MusicPlayer.cover]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<bordertexture border="8">ThumbShadow.png</bordertexture>
+					<bordersize>8</bordersize>
+				</control>
+			</control>
+			<control type="image" id="1">
+				<posx>525</posx>
+				<posy>475</posy><!-- -143 -->
+				<align>center</align>
+				<aligny>center</aligny>
+				<scroll>true</scroll>
+				<width>230</width>
+				<height>89</height>
+				<texture>$INFO[Player.FolderPath,,../logo.png]</texture>
+			</control>
+			<control type="image" id="2">
+				<posx>525</posx>
+				<posy>475</posy><!-- -143 -->
+				<align>center</align>
+				<aligny>center</aligny>
+				<scroll>true</scroll>
+				<width>230</width>
+				<height>89</height>
+				<texture>$INFO[Player.FolderPath,,../../logo.png]</texture>
+				<visible>IsEmpty(Control.GetLabel(1))</visible>
+			</control>
+			<control type="label">
+				<posx>315</posx>
+				<posy>485</posy><!-- -143 -->
+				<width>650</width>
+				<height>25</height>
+				<align>center</align>
+				<aligny>-</aligny>
+				<scroll>true</scroll>
+				<font>METF_MusicVizTitle</font>
+				<label>[COLOR=NowPlayingTitle]$INFO[MusicPlayer.Artist][/COLOR]</label>
+				<visible>IsEmpty(Control.GetLabel(1)) + IsEmpty(Control.GetLabel(2))</visible>
+			</control>
+			<control type="label">
+				<posx>315</posx>
+				<posy>575</posy> <!-- -103 -->
+				<width>650</width>
+				<height>24</height>
+				<align>center</align>
+				<font>METF_TitleTextLarge</font>
+				<label>$INFO[MusicPlayer.Album]</label>
+				<textcolor>80C2C4C3</textcolor>
+			</control>
+			<control type="label">
+				<posx>315</posx>
+				<posy>620</posy>
+				<width>650</width><!-- 1280 -->
+				<height>30</height>
+				<align>center</align>
+				<font>METF_SettingsHeading</font>
+				<label>[COLOR=white]$INFO[MusicPlayer.Title][/COLOR]</label>
+			</control>
+			<control type="progress" id="23">
+				<description>Progressbar</description>
+				<posx>395</posx>
+				<posy>660</posy>
+				<width>500</width>
+				<height>15</height>
+				<align>center</align>
+				<info>Player.Progress</info>
+				<texturebg>osd/osd_progress_back.png</texturebg>
+				<lefttexture>osd/osd_progress_left.png</lefttexture>
+				<midtexture>osd/osd_progress_mid.png</midtexture>
+				<righttexture>osd/osd_progress_right.png</righttexture>
+				<colordiffuse>OSDProgressBar</colordiffuse>
+				<overlaytexture>-</overlaytexture>
+			</control>
+			<control type="fadelabel">
+				<posx>290</posx>
+				<posy>675</posy>
+				<width>700</width>
+				<visible>true</visible>
+				<scroll>false</scroll>
+				<scrollout>false</scrollout>
+				<scrollspeed>1000</scrollspeed>
+				<pauseatend>10000</pauseatend>
+				<label>[COLOR=NowPlayingTitle]$LOCALIZE[209][/COLOR]: $INFO[MusicPlayer.offset(1).Artist]: $INFO[MusicPlayer.offset(1).Title]</label>
+				<font>Font_Bartowski_Episodes</font>
+				<textcolor>50FFFFFF</textcolor>
+				<align>center</align>
+			</control>
+			<control type="group">
+				<control type="image">
+					<posx>10</posx>
+					<posy>680</posy>
+					<description>Codec Image</description>
+					<width>67</width>  <!-- 160x80 -->
+					<height>30</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[MusicPlayer.Codec,flags/AudioCodec/,.png]</texture>
+				</control>
+				<control type="image">
+					<posx>5</posx>
+					<posy>675</posy>
+					<width>77</width>
+					<height>40</height>
+					<colordiffuse>MediaFlagBoxDiffuse</colordiffuse>
+					<texture>flags/flag_frame.png</texture>
+				</control>
+				<control type="image">
+					<posx>85</posx>
+					<posy>680</posy>
+					<width>60</width>
+					<height>30</height>
+					<aspectratio>keep</aspectratio>
+					<texture fallback="flags/AudioChannels/DefaultChannels.png">$INFO[MusicPlayer.Channels,flags/AudioChannels/,ch.png]</texture>
+				</control>
+				<control type="image">
+					<posx>75</posx>
+					<posy>675</posy>
+					<width>80</width>
+					<height>40</height>
+					<colordiffuse>MediaFlagBoxDiffuse</colordiffuse>
+					<texture>flags/flag_frame.png</texture>
+				</control>
+				<control type="image">
+					<posx>158</posx>
+					<posy>680</posy>
+					<width>60</width>
+					<height>30</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[MusicPlayer.Property(Album_Label),flags/RecordLabels/,.png]</texture>
+				</control>
+				<control type="image">
+					<posx>148</posx>
+					<posy>675</posy>
+					<width>80</width>
+					<height>40</height>
+					<colordiffuse>MediaFlagBoxDiffuse</colordiffuse>
+					<texture>flags/flag_frame.png</texture>
+				</control>
+				<control type="image">
+					<posx>233</posx>
+					<posy>685</posy>
+					<width>88</width>
+					<height>22</height>
+					<colordiffuse>OSDProgressBar</colordiffuse>
+					<texture>flags/LeftRating/$INFO[Player.StarRating]</texture>
+				</control>
+				<control type="image">
+					<posx>218</posx>
+					<posy>675</posy>
+					<width>118</width>
+					<height>40</height>
+					<texture>flags/flag_frame.png</texture>
+					<colordiffuse>MediaFlagBoxDiffuse</colordiffuse>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<include>Global_Time</include>
+			<visible>Player.ShowInfo + !Window.IsVisible(120)</visible>	
+		</control>
+	</controls>
+</window>

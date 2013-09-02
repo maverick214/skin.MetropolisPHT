@@ -1,0 +1,614 @@
+<includes>
+	<!-- Home1 Default-->
+	<include name="Submenu_VerticalDetails">
+		<posx>1060</posx>
+		<posy>50</posy>
+		<width>220</width>
+		<height>416</height>
+		<orientation>vertical</orientation>
+		<align>left</align>
+		<itemgap>0</itemgap>
+		<onleft>9000</onleft>
+		<onright>11000</onright>
+	</include>
+	<include name="Submenu_Button">
+		<width>208</width>
+		<height>32</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<textoffsetx>8</textoffsetx>
+		<font>METF_HomeMenu</font>
+		<textcolor>HomeMenuText</textcolor>
+		<focusedcolor>FocusBarText</focusedcolor>
+		<texturefocus>FocusLine.png</texturefocus>
+		<colordiffuse>FocusBar</colordiffuse>
+	</include>
+	<include name="HomeStatsDetails">
+		<posx>1130</posx>
+		<height>25</height>
+		<width>130</width>
+		<align>left</align>
+		<font>METF_HomeStatsText</font>
+		<textcolor>HomeStatsCategory</textcolor>
+	</include>
+	<include name="HomeStatsDetailsNumber">
+		<posx>1122</posx>
+		<height>25</height>
+		<width>60</width>
+		<align>right</align>
+		<font>METF_HomeStatsText</font>
+		<textcolor>HomeStatsNumber</textcolor>
+	</include>
+
+	<include name="Home1_Default">
+		<visible>!Skin.HasSetting(home2)</visible>
+		<include condition="!Skin.HasSetting(HideRecentlyAdded)">HomeRecentlyAddedInfo</include>
+		<control type="button" id="9002">
+			<description>Hidden Button to pass through navigation when recently added is disabled</description>
+			<posx>-20</posx>
+			<posy>-20</posy>
+			<width>1</width>
+			<height>1</height>
+			<label>-</label>
+			<font>-</font>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onleft>9000</onleft>
+			<onright>9001</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<visible>false</visible>
+		</control>
+
+		<!-- Large Fanart and Frame -->
+		<control type="group">
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<control type="image">
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<texture>frames/ClassicFrame_Background.png</texture>
+				<colordiffuse>FrameBackgroundDiffuse</colordiffuse>
+			</control>
+			<control type="multiimage">
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<timeperimage>15000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>500</fadetime>
+				<imagepath background="true">$INFO[Container(9000).ListItem.Icon]</imagepath>
+				<aspectratio>stretch</aspectratio>
+				<visible>!Window.IsActive(videooverlay) + Control.HasFocus(9000)</visible>
+			</control>
+			<control type="multiimage" id="10101">
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<aligny>top</aligny>
+				<timeperimage>8000</timeperimage>
+				<fadetime>1000</fadetime>
+				<randomize>true</randomize>
+				<loop>yes</loop>
+				<visible>[!Window.IsActive(videooverlay) + !Control.HasFocus(9000) + !Control.HasFocus(11000) + !Control.HasFocus(11001)] + !Skin.HasSetting(NoHomeSlideshow)</visible>
+			</control>
+			<!-- on deck -->
+			<control type="largeimage">
+				<visible>Control.HasFocus(11000)</visible>
+				<info background="true">Container(11000).ListItem.Property(fanart_image)</info>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<fadetime>1000</fadetime>
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<animation effect="fade" time="800" delay="300">Hidden</animation>
+			</control>
+			<!-- recently added -->
+			<control type="largeimage">
+				<visible>Control.HasFocus(11001)</visible>
+				<info background="true">Container(11001).ListItem.Property(fanart_image)</info>
+				<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+				<fadetime>1000</fadetime>
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<animation effect="fade" time="800" delay="300">Hidden</animation>
+			</control>
+			<control type="videowindow">
+				<posx>240</posx>
+				<posy>50</posy>
+				<width>800</width>
+				<height>450</height>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="image">
+				<posx>215</posx>
+				<posy>25</posy>
+				<width>848</width>
+				<height>507</height>
+				<texture>frames/ClassicFrame_Fanart.png</texture>
+			</control>
+		</control>
+		
+		<include>HomeSmallVideoInfo</include>
+
+		<!-- Help Text for LEFT side of Home screen -->
+		<control type="group">
+			<posx>0</posx>
+			<posy>2</posy>
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<visible>!ControlGroup(9001).HasFocus() + ![Control.HasFocus(8000) | Control.HasFocus(8001)] + [Container(9000).HasFocus(1) | Container(9000).HasFocus(2) | Container(9000).HasFocus(3) | Container(9000).HasFocus(4) | Container(9000).HasFocus(5) | Container(9000).HasFocus(6) | Container(9000).HasFocus(8) | Container(9000).HasFocus(9) | Container(9000).HasFocus(11)]</visible>
+			<visible>!Skin.HasSetting(HideHelpText)</visible>
+			<visible>!Control.IsVisible(300)</visible>
+			<control type="image">
+				<posx>190</posx>
+				<posy>475</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowRight.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+			</control>
+			<control type="label">
+				<posx>188</posx>
+				<posy>477</posy>
+				<width>140</width>
+				<height>25</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>$LOCALIZE[1034]</label>
+			</control>
+		</control>
+		<!-- Help Text for RIGHT side of Home screen -->
+		<control type="group">
+			<posx>0</posx>
+			<posy>2</posy>
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<animation effect="fade" start="0" end="100" delay="200" time="200" condition="ControlGroup(9001).HasFocus">conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="ControlGroup(9001).HasFocus">WindowClose</animation>
+			<visible>ControlGroup(9001).HasFocus() + ![Control.HasFocus(8000) | Control.HasFocus(8001)]</visible>
+			<visible>!Skin.HasSetting(HideHelpText)</visible>
+			<control type="image">
+				<posx>1060</posx>
+				<posy>475</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowLeft.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+			</control>
+			<control type="label">
+				<posx>1092</posx>
+				<posy>477</posy>
+				<width>140</width>
+				<height>25</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>$LOCALIZE[33061]</label>
+			</control>
+		</control>
+		<!-- Help Text for BOTTOM of Home screen -->
+		<control type="group">
+			<posx>0</posx>
+			<posy>2</posy>
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<visible>[Control.HasFocus(11000) | Control.HasFocus(11001) | Control.HasFocus(11002) | Control.HasFocus(11003) | Control.HasFocus(11004)] + !Skin.HasSetting(HideRecentlyAdded)</visible>
+			<visible>!Skin.HasSetting(HideHelpText)</visible>
+
+			<control type="image">
+				<posx>163</posx>
+				<posy>475</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowLeft.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+				<visible>Control.HasFocus(11000) | Control.HasFocus(11002) | Control.HasFocus(11003) | [Control.HasFocus(11001) + !Control.IsVisible(11000)]</visible>
+			</control>
+			<control type="image">
+				<posx>163</posx>
+				<posy>475</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowRight.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+				<visible>[Control.HasFocus(11001) + Control.IsVisible(11000)]</visible>
+			</control>
+
+			<control type="image">
+				<posx>163</posx>
+				<posy>510</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowRight.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+				<visible>[Control.HasFocus(11000) + !Container(11000).ListItem(0).Type(album)]</visible>
+			</control>
+			<control type="image">
+				<posx>163</posx>
+				<posy>510</posy>
+				<width>30</width>
+				<height>30</height>
+				<texture>ArrowLeft.png</texture>
+				<colordiffuse>HelpArrowDiffuse</colordiffuse>
+				<visible>[Control.HasFocus(11001) + Control.IsVisible(11000)] | Control.HasFocus(11004)</visible>
+			</control>
+
+
+			<control type="label">
+				<posx>159</posx>
+				<posy>477</posy>
+				<width>136</width>
+				<height>25</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>$LOCALIZE[33061]</label>
+				<visible>Control.HasFocus(11000) | Control.HasFocus(11001) | Control.HasFocus(11002) | Control.HasFocus(11003) | Control.HasFocus(11004)</visible>
+			</control>
+			<control type="label">
+				<posx>159</posx>
+				<posy>512</posy>
+				<width>136</width>
+				<height>25</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>IN PROGRESS</label>
+				<visible>Control.HasFocus(11000) + !Container(11000).ListItem(0).Type(album)</visible>
+			</control>
+			<control type="label">
+				<posx>159</posx>
+				<posy>512</posy>
+				<width>136</width>
+				<height>25</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>Recently Added</label>
+				<visible>[Control.HasFocus(11001) + Control.IsVisible(11000)]</visible>
+			</control>
+<!--
+			<control type="label">
+				<posx>159</posx>
+				<posy>512</posy>
+				<width>136</width>
+				<height>25</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>Recommended</label>
+				<visible>Control.HasFocus(11003)</visible>
+			</control>
+			<control type="label">
+				<posx>159</posx>
+				<posy>512</posy>
+				<width>136</width>
+				<height>25</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>Queue</label>
+				<visible>Control.HasFocus(11004)</visible>
+			</control>
+-->
+			<control type="label">
+				<posx>850</posx>
+				<posy>509</posy>
+				<width>200</width>
+				<height>25</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>METF_HelpText</font>
+				<textcolor>HelpText</textcolor>
+				<label>$LOCALIZE[31410]</label>
+				<visible>!Control.HasFocus(11002)</visible>
+			</control>
+		</control>
+		<!-- Main Menu -->
+		<control type="list" id="300">
+			<posx>0</posx>
+			<posy>50</posy>
+			<width>230</width>
+			<height>416</height>
+			<onup>300</onup>
+			<ondown>300</ondown>
+			<onleft>9002</onleft>
+			<onright>9000</onright>
+			<focusposition>3</focusposition>
+			<viewtype>list</viewtype>
+			<orientation>vertical</orientation>
+			<visible allowhiddenfocus="true">true</visible>
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<itemlayout width="210" height="32">
+				<control type="label">
+					<posx>220</posx>
+					<posy>0</posy>
+					<width>212</width>
+					<height>32</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>HomeMenuText</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="220" height="32">
+				<!-- Focus Bar -->
+				<control type="image">
+					<posx>15</posx>
+					<posy>0</posy>
+					<width>215</width>
+					<height>32</height>
+					<aligny>center</aligny>
+					<texture flipx="true">FocusLine.png</texture>
+					<colordiffuse>FocusBar</colordiffuse>
+					<visible>!ControlGroup(9001).HasFocus() + ![Control.HasFocus(8000) | Control.HasFocus(8001)]</visible>
+				</control>
+				<control type="label">
+					<posx>220</posx>
+					<posy>0</posy>
+					<width>212</width>
+					<height>32</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>FocusBarText</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<posx>220</posx>
+					<posy>0</posy>
+					<width>212</width>
+					<height>32</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>HomeMenuTextFocused</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+				<content>
+<!--
+				<item id="1">
+					<description>Video Channels</description>
+					<label>$LOCALIZE[3]</label>
+					<icon>special://skin/extras/home1/videos.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomVideos)]</thumb>
+					<onclick>ActivateWindow(24)</onclick>
+					<visible>!Skin.HasSetting(NoVideos)</visible>
+				</item>
+-->
+				<item id="4">
+					<label>31144</label>
+					<onclick>XBMC.ActivateWindow(1)</onclick>
+					<visible>false</visible>
+					<width min="95" max="95">auto</width>
+				</item>
+
+				<item id="3">
+					<label>$LOCALIZE[31973]</label>
+					<onclick>XBMC.ActivateWindow(2)</onclick>
+					<visible>!Skin.HasSetting(nopictures)</visible>
+					<visible>false</visible>
+					<width min="95" max="95">auto</width>
+				</item>
+				<item id="2">
+					<label>$LOCALIZE[31972]</label>
+					<onclick>XBMC.ActivateWindow(MyMusic,return)</onclick>
+					<visible>!Skin.HasSetting(nomusic)</visible>
+					<visible>false</visible>
+					<width min="95" max="95">auto</width>
+				</item>
+<!--
+				<item id="10">
+					<description>Weather</description>
+					<label>31017</label>
+					<include condition="Skin.HasSetting(CustomWeatherConditions)">BackgroundVarsWeather2</include>
+					<include condition="!Skin.HasSetting(CustomWeatherConditions)">BackgroundVarsWeather</include>
+					<onclick>xbmc.activatewindow(2600)</onclick>
+          			<visible>substring(Container(300).ListItem.Label,Shared Content) + Control.IsVisible(300)]</visible>
+					<width min="95" max="95">auto</width>
+				</item>
+-->
+				<item id="9">
+					<label>31016</label>
+					<onclick>Skin.Reset(settingsfade)</onclick>
+					<onclick>XBMC.ActivateWindow(4)</onclick>
+					<width min="95" max="95">auto</width>
+					<visible>false</visible>
+				</item>
+<!--
+				<item id="24">
+					<description>Scripts</description>
+					<include>BackgroundVarsScripts</include>
+					<label>31020</label>
+					<onclick>XBMC.ActivateWindow(20)</onclick>
+					<width min="95" max="95">auto</width>
+					<visible>Skin.HasSetting(scripts)</visible>
+					<visible>!Skin.HasSetting(SectionsMenu)</visible>
+				</item>
+-->
+				<item id="13">
+					<description>Play DVD</description>
+					<label>31018</label>
+					<onclick>XBMC.PlayDVD</onclick>
+					<width min="95" max="95">auto</width>
+					<visible>System.HasMediadvd</visible>
+				</item>
+				<item id="20">
+					<description>Refresh</description>
+					<label>31607</label>
+					<onclick>XBMC.ReloadSkin</onclick>
+					<width min="95" max="95">auto</width>
+					<visible>Skin.HasSetting(debug)</visible>
+				</item>
+				</content>
+			</control>
+		<control type="list" id="9000">
+			<posx>1060</posx>
+			<posy>50</posy>
+			<width>220</width>
+			<height>416</height>
+			<align>left</align>
+			<itemgap>0</itemgap>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<onleft>Setfocus(300)</onleft>
+			<onright>-</onright>
+			<viewtype>list</viewtype>
+			<orientation>vertical</orientation>
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<visible allowhiddenfocus="true">[Control.HasFocus(300) | Control.HasFocus(9000)] + !Control.HasFocus(11000) + !Control.HasFocus(11001)</visible>
+			<itemlayout width="200" height="32">
+				<control type="label">
+					<posx>5</posx>
+					<posy>0</posy>
+					<width>200</width>
+					<height>32</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>HomeMenuText</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="230" height="32">
+				<!-- Focus Bar -->
+				<control type="image">
+					<posx>-20</posx>
+					<posy>0</posy>
+					<width>225</width>
+					<height>32</height>
+					<aligny>center</aligny>
+					<texture>FocusLine.png</texture>
+					<colordiffuse>FocusBar</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>5</posx>
+					<posy>0</posy>
+					<width>200</width>
+					<height>32</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_HomeMenu</font>
+					<textcolor>FocusBarText</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+			<content>
+<!--
+				<item id="4">
+					<description>Movies</description>
+					<label>Media</label>
+					<icon>special://skin/extras/home1/movies.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomMovies)]</thumb>
+					<onclick>SetFocus(9001)</onclick>
+					<visible>!Skin.HasSetting(NoMovies)</visible>
+				</item>
+
+				<item id="5">
+					<description>TV Shows</description>
+					<label>$LOCALIZE[20343]</label>
+					<icon>special://skin/extras/home1/tvshows.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomTVShows)]</thumb>
+					<onclick>ActivateWindow(MyVideos,TVShowTitles,return)</onclick>
+					<visible>!Skin.HasSetting(NoTVShows)</visible>
+				</item>
+-->
+				<item id="11">
+					<description>Search Menu</description>
+					<icon>home/search.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomSearch)]</thumb>
+					<label>$LOCALIZE[137]</label>
+					<onclick>Plex.ActivateWindow(10051)</onclick>
+					<visible>!Skin.HasSetting(noSearch)</visible>
+				</item>
+<!--
+				<item id="3">
+					<description>Music</description>
+					<label>$LOCALIZE[2]</label>
+					<icon>special://skin/extras/home1/music.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomMusic)]</thumb>
+					<onclick>ReplaceWindow(MusicFiles)</onclick>
+					<visible>!Skin.HasSetting(NoMusic)</visible>
+				</item>
+				<item id="6">
+					<description>Pictures</description>
+					<label>$LOCALIZE[1]</label>
+					<icon>special://skin/extras/home1/pictures.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomPictures)]</thumb>
+					<onclick>ActivateWindow(Pictures)</onclick>
+					<visible>!Skin.HasSetting(NoPictures)</visible>
+				</item>
+-->
+				<item id="1">
+					<description>Add-ons Plex Store</description>
+					<label>Add Channels</label>
+					<icon>special://skin/extras/home1/programs.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomAppStore)]</thumb>
+					<onclick>Plex.ActivateWindow(1,plexserver://channeldirectory,return)</onclick>
+					<visible>!Skin.HasSetting(NoAppStore)</visible>
+				</item>
+				<item id="5">
+					<description>Programs</description>
+					<label>$LOCALIZE[31476]</label>
+					<icon>special://skin/extras/home1/programs.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomPrograms)]</thumb>
+					<onclick>Plex.ActivateWindow(1)</onclick>
+					<visible>Skin.HasSetting(ShowPrograms)</visible>
+				</item>
+				<item id="8">
+					<description>Settings</description>
+					<label>$LOCALIZE[5]</label>
+					<icon>special://skin/extras/home1/settings.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomSettings)]</thumb>
+					<onclick>ActivateWindow(Settings)</onclick>
+					<visible>!Skin.HasSetting(NoSettings)</visible>
+				</item>
+				<item id="11">
+					<description>Shutdown</description>
+					<label>$LOCALIZE[31450]</label>
+					<icon>special://skin/extras/home1/shutdown.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomShutdown)]</thumb>
+					<onclick>Shutdown()</onclick>
+					<visible>!Skin.HasSetting(NoShutdown)</visible>
+				</item>
+				<item id="12">
+					<description>Logoff</description>
+					<label>$LOCALIZE[20126]</label>
+					<icon>special://skin/extras/home1/logoff.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomLogoff)]</thumb>
+					<onclick>System.LogOff</onclick>
+					<visible>System.HasLoginScreen</visible>
+				</item>
+				<item id="9">
+					<description>Play Disc</description>
+					<label>$LOCALIZE[341]</label>
+					<icon>special://skin/extras/home1/playdisc.jpg</icon>
+					<thumb>$INFO[Skin.String(CustomPlayDisc)]</thumb>
+					<onclick>PlayDVD</onclick>
+					<visible>System.HasMediadvd</visible>
+				</item>
+			</content>
+		</control>
+	</include>
+</includes>

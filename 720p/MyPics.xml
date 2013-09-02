@@ -1,0 +1,177 @@
+<window id="2">
+	<views>55,503,59,509,500</views>
+	<defaultcontrol>55</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+		<include>Global_Background</include>
+		<control type="image" id="668">
+			<include>Dimensions_Fullscreen</include>
+			<texture background="true" diffuse="diffuse_fanart.png">$INFO[listitem.filenameandpath]</texture>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<fadetime>400</fadetime>
+			<aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
+			<visible>!Skin.HasSetting(HidePictureFanart) + !Control.IsVisible(500) + [StringCompare(ListItem.FileExtension,png) | StringCompare(ListItem.FileExtension,jpg) | StringCompare(ListItem.FileExtension,jpeg) | StringCompare(ListItem.FileExtension,bmp) | StringCompare(ListItem.FileExtension,gif) | StringCompare(ListItem.FileExtension,ico) | StringCompare(ListItem.FileExtension,tif) | StringCompare(ListItem.FileExtension,tiff) | StringCompare(ListItem.FileExtension,tga) | StringCompare(ListItem.FileExtension,pcx) | StringCompare(ListItem.FileExtension,cbz) | StringCompare(ListItem.FileExtension,zip) | StringCompare(ListItem.FileExtension,cbr) | StringCompare(ListItem.FileExtension,rar) | StringCompare(ListItem.FileExtension,m3u)]</visible>
+			<include>Animation_BackdropFade</include>
+		</control>
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<texture background="true" diffuse="diffuse_fanart.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<fadetime>400</fadetime>
+			<visible>!Skin.HasSetting(HidePictureFanart) + !IsEmpty(ListItem.Property(Fanart_Image)) + !Control.IsVisible(500)</visible>
+			<include>Animation_BackdropFade</include>
+		</control>
+		<include>Viewtype_Files</include>
+		<include>Viewtype_List</include>
+		<include>Viewtype_FanartList</include>
+		<include>Viewtype_Gallery_Fanart</include>
+		<include>Viewtype_PictureGrid</include>
+		<include>Global_ContextFilter</include>
+		<control type="group">
+			<include>Animation_OpenCloseFade</include>
+			<include>Animation_FadedByMenu</include>
+			<include>Global_PictureInfo</include>
+		</control>
+		<!-- Navigation Menu -->
+		<control type="group">
+			<include>Animation_NavMenu</include>
+			<include>NavMenuBackground</include>
+			<control type="grouplist" id="7000">
+				<posx>470</posx>
+				<posy>120</posy>
+				<width>340</width>
+				<height>548</height>
+				<itemgap>2</itemgap>
+				<onleft>55</onleft>
+				<onright>55</onright>
+				<onup>7000</onup>
+				<ondown>7000</ondown>
+				<orientation>vertical</orientation>
+				<visible allowhiddenfocus="true">ControlGroup(7000).HasFocus</visible>
+				<control type="button" id="2">
+					<description>View</description>
+					<onclick>Container.NextViewMode</onclick>
+					<width>340</width>
+					<height>40</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_DialogLarge</font>
+					<label>-</label>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<pulseonselect>false</pulseonselect>
+				</control>
+				<control type="button" id="3">
+					<description>Sort</description>
+					<width>340</width>
+					<height>40</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_DialogLarge</font>
+					<label>-</label>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<pulseonselect>false</pulseonselect>
+				</control>
+				<control type="togglebutton" id="4">
+					<description>Ascending/Descending</description>
+					<width>340</width>
+					<height>40</height>
+					<align>left</align>
+					<label>584</label>
+					<altlabel>585</altlabel>
+					<textoffsetx>20</textoffsetx>
+					<font>METF_DialogLarge</font>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<alttexturenofocus border="2">-</alttexturenofocus>
+					<alttexturefocus border="5">ButtonFO2.png</alttexturefocus>
+					<aligny>center</aligny>
+					<pulseonselect>false</pulseonselect>
+				</control>
+				<control type="button" id="6">
+					<description>Slideshow</description>
+					<width>340</width>
+					<height>40</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_DialogLarge</font>
+					<label>108</label>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<pulseonselect>false</pulseonselect>
+					<visible>!ListItem.IsFolder</visible>
+				</control>
+				<control type="button" id="7">
+					<description>Recursive Slideshow</description>
+					<width>340</width>
+					<height>40</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_DialogLarge</font>
+					<label>108</label>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<pulseonselect>false</pulseonselect>
+					<visible>ListItem.IsFolder + !SubString(Container.FolderPath,plugin)</visible>
+				</control>
+				<control type="radiobutton" id="9">
+					<description>Randomise</description>
+					<width>340</width>
+					<align>left</align>
+					<label>13319</label>
+					<aligny>center</aligny>
+					<font>METF_DialogLarge</font>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+				</control>
+				<control type="button" id="98">
+					<description>Open Player Controls</description>
+					<width>340</width>
+					<height>40</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>METF_DialogLarge</font>
+					<label>$LOCALIZE[31441] $LOCALIZE[2]</label>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>TextNF</textcolor>
+					<focusedcolor>DialogTextFO</focusedcolor>
+					<disabledcolor>TextDisabled</disabledcolor>
+					<texturefocus>ButtonFO2Wide.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<pulseonselect>false</pulseonselect>
+					<onclick>ActivateWindow(playercontrols)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
+			</control>
+		</control>
+		<include>Global_Time</include>
+		<include>Global_Heading</include>
+		<include>GlobalMusic</include>
+		<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
+		<include condition="Skin.HasSetting(DebugMode)">Debug</include>
+	</controls>
+</window>

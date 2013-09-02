@@ -1,0 +1,82 @@
+<includes>
+	<include name="GlobalMusic">
+		<control type="group">
+			<visible>Player.HasAudio + !Window.IsActive(visualisation) + ![Control.IsVisible(9900) | Control.IsVisible(9901) | Control.IsVisible(9902) | Control.IsVisible(9903)]</visible> 
+			<control type="group">
+				<posx>20</posx>
+				<posy>560</posy>
+				<animation effect="slide" start="0,0" end="-186,0" time="600" condition="Window.IsActive(filemanager) | Window.IsActive(musicplaylisteditor)">Conditional</animation>
+		<!--	<visible>Skin.HasSetting(MusicCoverArtOverlay)</visible> -->
+				<visible>true</visible>
+				<control type="largeimage">
+					<posx>48</posx>
+					<posy>8</posy>
+					<width>135</width>
+					<height>135</height>
+					<include>Animation_SpinningCD</include>
+				</control>
+				<control type="image">
+					<description>cover image</description>
+					<width>150</width>
+					<height>150</height>
+					<aspectratio aligny="bottom">scale</aspectratio>
+					<texture background="true">$INFO[MusicPlayer.cover]</texture>
+					<bordertexture border="8">thumb_border.png</bordertexture>
+					<bordersize>6</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<posx>40</posx>
+				<posy>590</posy>
+				<animation effect="slide" start="0,0" end="-186,0" time="600" condition="Window.IsActive(filemanager) | Window.IsActive(musicplaylisteditor)">Conditional</animation>
+				<visible>Window.IsActive(home) + !Skin.HasSetting(Home2) + Control.HasFocus(9000)</visible>
+				<control type="group">
+					<control type="fadelabel">
+						<posx>160</posx>
+						<posy>92</posy>
+						<width>1000</width>
+						<scrollout>false</scrollout>
+						<pauseatend>1800</pauseatend>
+						<scrollspeed>40</scrollspeed>
+						<scroll>true</scroll>
+						<font>METF_TitleTextMedium</font>
+						<label>$INFO[MusicPlayer.Title]</label>
+						<textcolor>NowPlayingDetails</textcolor>
+						<animation effect="slide" end="0,26" condition="IsEmpty(MusicPlayer.Artist) + IsEmpty(MusicPlayer.Album)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="54,0" time="600" tween="cubic" easing="out" delay="400" condition="Skin.HasSetting(MusicCoverArtOverlay) + !StringCompare(MusicPlayer.Cover,DefaultAlbumCover.png)">Conditional</animation>
+					</control>
+					<control type="grouplist">
+						<posx>160</posx>
+						<posy>120</posy>
+						<width>1000</width>
+						<itemgap>10</itemgap>
+						<align>left</align>
+						<orientation>horizontal</orientation>
+						<animation effect="slide" start="0,0" end="54,0" time="600" tween="cubic" easing="out" delay="400" condition="Skin.HasSetting(MusicCoverArtOverlay) + !StringCompare(MusicPlayer.Cover,DefaultAlbumCover.png)">Conditional</animation>
+						<visible>Skin.HasSetting(MusicCoverArtOverlay)</visible>
+						<control type="label">
+							<posx>0</posx>
+							<posy>0</posy>
+							<height>30</height>
+							<aligny>center</aligny>
+							<width min="10" max="1034">auto</width>
+							<font>METF_DialogLarge</font>
+							<label>$INFO[MusicPlayer.Artist]</label>
+							<textcolor>NowPlayingTitle</textcolor>
+						</control>
+						<control type="label">
+							<posx>0</posx>
+							<posy>0</posy>
+							<height>30</height>
+							<aligny>center</aligny>
+							<width min="10" max="1034">auto</width>
+							<font>METF_DialogLarge</font>
+							<label>$INFO[MusicPlayer.Album]</label>
+							<textcolor>NowPlayingDetails</textcolor>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

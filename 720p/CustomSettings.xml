@@ -1,0 +1,2032 @@
+<window id="56">
+	<defaultcontrol>9000</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+		<include>Global_Background</include>		
+		<control type="group">
+			<include>Animation_FadedByMenu</include>
+			<include>Animation_OpenCloseFade</include>
+			<control type="list" id="9000">
+				<description>List</description>
+				<posx>0</posx>
+				<posy>100</posy>
+				<width>380</width>
+				<height>456</height>
+				<itemgap>0</itemgap>
+				<scrolltime>0</scrolltime>
+				<onleft>9010</onleft>
+				<onright>9010</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>vertical</orientation>
+				<pagecontrol>-</pagecontrol>
+				<itemlayout height="38" width="380">
+					<control type="label">
+						<posx>370</posx>
+						<posy>0</posy>
+						<width>370</width>
+						<height>38</height>
+						<textcolor>SettingsDetail</textcolor>
+						<font>METF_TitleTextMedium</font>
+						<aligny>center</aligny>
+						<align>right</align>
+						<focusedcolor>ButtonText</focusedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="38" width="380">
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>380</width>
+						<height>38</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<texture>ButtonFo.png</texture>
+						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(9000)">Conditional</animation>
+					</control>
+					<control type="label">
+						<posx>370</posx>
+						<posy>0</posy>
+						<width>370</width>
+						<height>38</height>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<font>METF_TitleTextMedium</font>
+						<textcolor>DialogTextFO</textcolor>
+						<focusedcolor>BDialogTextFO</focusedcolor>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<description>General</description>
+						<label>$LOCALIZE[128]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="2">
+						<description>Home Options</description>
+						<label>$LOCALIZE[31324]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="4">
+						<description>Home Artwork</description>
+						<label>$LOCALIZE[31002]</label>
+						<onclick>-</onclick>
+						<visible>!Skin.HasSetting(Home2)</visible>
+					</item>
+					<item id="10">
+						<description>Home Items</description>
+						<label>$LOCALIZE[31331]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="3">
+						<description>View Options</description>
+						<label>$LOCALIZE[31001]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="5">
+						<description>View Types</description>
+						<label>$LOCALIZE[31440]</label>
+						<onclick>-</onclick>
+					</item>
+<!--
+					<item id="6">
+						<description>Scripts and Extra Images</description>
+						<label>$LOCALIZE[31330]</label>
+						<onclick>-</onclick>
+					</item>
+-->
+					<item id="7">
+						<description>Video Settings</description>
+						<label>$LOCALIZE[31420]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="8">
+						<description>Music Settings</description>
+						<label>$LOCALIZE[31419]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="11">
+						<description>Picture Settings</description>
+						<label>$LOCALIZE[31445]</label>
+						<onclick>-</onclick>
+					</item>
+					<item id="9">
+						<description>Debug</description>
+						<label>$LOCALIZE[31004]</label>
+						<onclick>-</onclick>
+					</item>
+				</content>
+			</control>
+			<control type="group" id="9010">
+				<posx>440</posx>
+				<posy>100</posy>
+				<!-- General -->
+				<control type="grouplist" id="9001">
+					<visible>Container(9000).Hasfocus(1)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+<!--
+					<control type="radiobutton" id="101">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31399]</label>
+						<onclick>Skin.ToggleSetting(HideLoginFrames)</onclick>
+						<selected>Skin.HasSetting(HideLoginFrames)</selected>
+					</control>
+-->
+					<control type="radiobutton" id="102">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31418] $LOCALIZE[31011] [COLOR HelpText]$LOCALIZE[31417][/COLOR]</label>
+						<onclick>Skin.ToggleSetting(HideHelpText)</onclick>
+						<selected>Skin.HasSetting(HideHelpText)</selected>
+					</control>
+<!--
+					<control type="radiobutton" id="103">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31400]</label>
+						<onclick>Skin.ToggleSetting(HideClockTemp)</onclick>
+						<selected>Skin.HasSetting(HideClockTemp)</selected>
+					</control>
+					<control type="radiobutton" id="108">
+						<include>SettingsLabel</include>
+						<label>Use Realistic Weather Icons</label>
+						<onclick>Skin.ToggleSetting(WeatherIcons2)</onclick>
+						<selected>Skin.HasSetting(WeatherIcons2)</selected>
+					</control>
+-->
+					<control type="radiobutton" id="104">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31005]</label>
+						<onclick>Skin.ToggleSetting(AutoScroll)</onclick>
+						<selected>Skin.HasSetting(AutoScroll)</selected>
+					</control>
+					<control type="radiobutton" id="105">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31336]</label>
+						<onclick>Skin.ToggleSetting(ViewLockdown)</onclick>
+						<selected>Skin.HasSetting(ViewLockdown)</selected>
+					</control>
+					<control type="radiobutton" id="106">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[21398]</label>
+						<onclick>Skin.ToggleSetting(Use_Startup_Playlist)</onclick>
+						<selected>Skin.HasSetting(Use_Startup_Playlist)</selected>
+					</control>
+					<control type="button" id="107">
+						<include>SettingsLabel</include>
+						<width>370</width>
+						<label>$LOCALIZE[15311]</label>
+						<label2>$INFO[Skin.String(Startup_Playlist_Path)]</label2>
+						<onclick>Skin.SetFile(Startup_Playlist_Path,.xsp,t:\playlists\music\)</onclick>
+						<visible>Skin.HasSetting(Use_Startup_Playlist)</visible>
+					</control>
+				</control>
+				<!-- Home Options -->
+				<control type="grouplist" id="9002">
+					<visible>Container(9000).Hasfocus(2)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+<!--
+					<control type="radiobutton" id="201">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31210]</label>
+						<onclick>Skin.SetBool(Home1)</onclick>
+						<onclick>Skin.Reset(Home2)</onclick>
+						<selected>!Skin.HasSetting(Home2)</selected>
+					</control>
+					<control type="radiobutton" id="202">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31024]</label>
+						<onclick>Skin.SetBool(Home2)</onclick>
+						<onclick>Skin.Reset(Home1)</onclick>
+						<selected>Skin.HasSetting(Home2)</selected>
+					</control>
+					<control type="image" id="203">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="204">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31322]</label>
+						<onclick>Skin.ToggleSetting(HomeStats)</onclick>
+						<selected>Skin.HasSetting(HomeStats)</selected>
+						<visible>!Skin.HasSetting(Home2)</visible>
+					</control>
+-->
+					<control type="radiobutton" id="205">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31060]</label>
+						<onclick>Skin.ToggleSetting(HideRecentlyAdded)</onclick>
+						<selected>!Skin.HasSetting(HideRecentlyAdded)</selected>
+					</control>
+<!--
+					<control type="radiobutton" id="206">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31328]</label>
+						<onclick>Skin.Reset(ShowRecentlyAdded)</onclick>
+						<onclick>Skin.ToggleSetting(ShowRandomItems)</onclick>
+						<selected>Skin.HasSetting(ShowRandomItems)</selected>
+					</control>
+-->
+					<!-- XXX: not yet implemented
+					<control type="radiobutton" id="207">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31327]</label>
+						<onclick>Skin.ToggleSetting(PlayAlbums)</onclick>
+						<selected>Skin.HasSetting(PlayAlbums)</selected>
+					</control>
+					<control type="image" id="208">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="209">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31333]</label>
+						<onclick>Skin.ToggleSetting(HomeMusicArtists)</onclick>
+						<selected>Skin.HasSetting(HomeMusicArtists)</selected>
+					</control>
+					<control type="radiobutton" id="210">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31314]</label>
+						<onclick>Skin.ToggleSetting(HomeReturnOff)</onclick>
+						<selected>Skin.HasSetting(HomeReturnOff)</selected>
+					</control> 
+					<control type="image" id="211">
+						<include>Settings_Line</include>
+						<visible>!Skin.HasSetting(Home2)</visible>
+					</control>
+
+					<control type="radiobutton" id="212">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31034]</label>
+						<onclick>Skin.ToggleSetting(HomeWeather)</onclick>
+						<selected>Skin.HasSetting(HomeWeather)</selected>
+						<visible>!Skin.HasSetting(Home2)</visible>
+					</control>
+					<control type="image" id="213">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="214">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31444]</label>
+						<onclick>Skin.ToggleSetting(NoRSS)</onclick>
+						<selected>Skin.HasSetting(NoRSS)</selected>
+					</control>
+-->
+				</control>
+				<!-- Home Items -->
+				<control type="grouplist" id="9012">
+					<visible>Container(9000).Hasfocus(10)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+<!--
+					<control type="radiobutton" id="401">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[342]</label>
+						<onclick>Skin.ToggleSetting(NoMovies)</onclick>
+						<selected>Skin.HasSetting(NoMovies)</selected>
+					</control>
+					<control type="radiobutton" id="402">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[20343]</label>
+						<onclick>Skin.ToggleSetting(NoTVShows)</onclick>
+						<selected>Skin.HasSetting(NoTVShows)</selected>
+					</control>
+
+					<control type="radiobutton" id="403">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[3]</label>
+						<onclick>Skin.ToggleSetting(NoVideos)</onclick>
+						<selected>Skin.HasSetting(NoVideos)</selected>
+					</control>
+
+					<control type="radiobutton" id="404">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31334]</label>
+						<onclick>Skin.ToggleSetting(NoTrailers)</onclick>
+						<selected>Skin.HasSetting(NoTrailers)</selected>
+						<visible>system.hasaddon(plugin.video.the.trailers)</visible>
+					</control>					
+-->
+					<control type="radiobutton" id="405">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[2]</label>
+						<onclick>Skin.ToggleSetting(NoMusic)</onclick>
+						<selected>Skin.HasSetting(NoMusic)</selected>
+					</control>
+					<control type="radiobutton" id="406">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[1]</label>
+						<onclick>Skin.ToggleSetting(NoPictures)</onclick>
+						<selected>Skin.HasSetting(NoPictures)</selected>
+					</control>
+					<control type="radiobutton" id="407">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31476]</label>
+						<onclick>Skin.ToggleSetting(ShowPrograms)</onclick>
+						<selected>!Skin.HasSetting(ShowPrograms)</selected>
+					</control>
+					<control type="radiobutton" id="408">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] Add Channels</label>
+						<onclick>Skin.ToggleSetting(NoAppStore)</onclick>
+						<selected>Skin.HasSetting(NoAppStore)</selected>
+					</control><!--
+					<control type="radiobutton" id="408">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[8]</label>
+						<onclick>Skin.ToggleSetting(NoWeather)</onclick>
+						<selected>Skin.HasSetting(NoWeather)</selected>
+					</control>
+
+					<control type="radiobutton" id="409">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[5]</label>
+						<onclick>Skin.ToggleSetting(NoSettings)</onclick>
+						<selected>Skin.HasSetting(NoSettings)</selected>
+					</control>
+
+					<control type="radiobutton" id="410">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[1036]</label>
+						<onclick>Skin.ToggleSetting(NoFavourites)</onclick>
+						<selected>Skin.HasSetting(NoFavourites)</selected>
+					</control>
+-->
+					<control type="radiobutton" id="411">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[13005]</label>
+						<onclick>Skin.ToggleSetting(NoShutdown)</onclick>
+						<selected>Skin.HasSetting(NoShutdown)</selected>
+					</control>
+				</control>
+				<!-- View Options -->
+				<control type="grouplist" id="9007">
+					<visible>Container(9000).Hasfocus(3)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>408</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<control type="radiobutton" id="501">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31031]</label>
+						<onclick>Skin.ToggleSetting(HideMovieWatchedOverlays)</onclick>
+						<selected>Skin.HasSetting(HideMovieWatchedOverlays)</selected>
+					</control>
+					<control type="radiobutton" id="502">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31032]</label>
+						<onclick>Skin.ToggleSetting(HideTVWatchedOverlays)</onclick>
+						<selected>Skin.HasSetting(HideTVWatchedOverlays)</selected>
+					</control>
+					<control type="image" id="503">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="504">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31402]</label>
+						<onclick>Skin.ToggleSetting(Show_PlotOutline)</onclick>
+						<selected>Skin.HasSetting(Show_PlotOutline)</selected>
+					</control>
+					<control type="radiobutton" id="505">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31403]</label>
+						<onclick>Skin.ToggleSetting(HideAllMediaFlags)</onclick>
+						<selected>!Skin.HasSetting(HideAllMediaFlags)</selected>
+					</control>
+					<control type="image" id="506">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="507">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31406]</label>
+						<onclick>Skin.ToggleSetting(NoSegmentedFanart)</onclick>
+						<selected>Skin.HasSetting(NoSegmentedFanart)</selected>
+					</control>
+<!--
+					<control type="radiobutton" id="508">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31404]</label>
+						<onclick>Skin.ToggleSetting(HideGenreDescriptions)</onclick>
+						<selected>Skin.HasSetting(HideGenreDescriptions)</selected>
+					</control>
+					<control type="radiobutton" id="509">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31405]</label>
+						<onclick>Skin.ToggleSetting(HideGenreIconLabels)</onclick>
+						<selected>Skin.HasSetting(HideGenreIconLabels)</selected>
+					</control>
+-->
+				</control>
+				<!-- View Types -->
+				<control type="grouplist" id="9005">
+					<visible>Container(9000).Hasfocus(5)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<!-- View 905 -->
+					<control type="radiobutton" id="601">
+						<description>Low List</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] Low List</label>
+						<onclick>Skin.ToggleSetting(NoViewLowList)</onclick>
+						<selected>Skin.HasSetting(NoViewLowList)</selected>
+					</control>
+					<!-- View 503 -->
+<!--
+					<control type="radiobutton" id="602">
+						<description>List</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31285]</label>
+						<onclick>Skin.ToggleSetting(NoViewList)</onclick>
+						<selected>Skin.HasSetting(NoViewList)</selected>
+					</control>
+-->
+					<!-- View 54 -->
+					<control type="radiobutton" id="603">
+						<description>Gallery</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31414]</label>
+						<onclick>Skin.ToggleSetting(NoViewGallery)</onclick>
+						<selected>Skin.HasSetting(NoViewGallery)</selected>
+					</control>
+					<!-- View 58 -->
+					<control type="radiobutton" id="604">
+						<description>Gallery Square</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31414] $LOCALIZE[31415]</label>
+						<onclick>Skin.ToggleSetting(NoViewGallerySquare)</onclick>
+						<selected>Skin.HasSetting(NoViewGallerySquare)</selected>
+					</control>
+					<!-- View 59 -->
+					<control type="radiobutton" id="605">
+						<description>Gallery Fanart</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31414] $LOCALIZE[20445]</label>
+						<onclick>Skin.ToggleSetting(NoViewGalleryFanart)</onclick>
+						<selected>Skin.HasSetting(NoViewGalleryFanart)</selected>
+					</control>
+					<!-- View 53 -->
+					<control type="radiobutton" id="606">
+						<description>Poster Fixed</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31283]</label>
+						<onclick>Skin.ToggleSetting(NoViewPosterFixed)</onclick>
+						<selected>Skin.HasSetting(NoViewPosterFixed)</selected>
+					</control>
+					<!-- View 57 -->
+					<control type="radiobutton" id="607">
+						<description>Poster Wrap</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31282]</label>
+						<onclick>Skin.ToggleSetting(NoViewPosterWrap)</onclick>
+						<selected>Skin.HasSetting(NoViewPosterWrap)</selected>
+					</control>
+					<!-- View 551 -->
+					<control type="radiobutton" id="608">
+						<description>Poster Large</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31430]</label>
+						<onclick>Skin.ToggleSetting(NoViewPosterLarge)</onclick>
+						<selected>Skin.HasSetting(NoViewPosterLarge)</selected>
+					</control>
+					<!-- View 550 -->
+					<control type="radiobutton" id="609">
+						<description>Poster Fanart</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31424]</label>
+						<onclick>Skin.ToggleSetting(NoViewPosterFanart)</onclick>
+						<selected>Skin.HasSetting(NoViewPosterFanart)</selected>
+					</control>
+					<!-- View 504 -->
+					<control type="radiobutton" id="610">
+						<description>Fanart</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31311]</label>
+						<onclick>Skin.ToggleSetting(NoViewFanart)</onclick>
+						<selected>Skin.HasSetting(NoViewFanart)</selected>
+					</control>
+					<!-- View 509 -->
+					<control type="radiobutton" id="611">
+						<description>Fanart List</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[20445] $LOCALIZE[535]</label>
+						<onclick>Skin.ToggleSetting(NoViewFanartList)</onclick>
+						<selected>Skin.HasSetting(NoViewFanartList)</selected>
+					</control>
+					<!-- View 511 -->
+					<control type="radiobutton" id="612">
+						<description>Banner</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31286]</label>
+						<onclick>Skin.ToggleSetting(NoViewBanner)</onclick>
+						<selected>Skin.HasSetting(NoViewBanner)</selected>
+					</control>
+					<!-- View 508 -->
+					<control type="radiobutton" id="613">
+						<description>Banner Fanart</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31442]</label>
+						<onclick>Skin.ToggleSetting(NoViewBannerFanart)</onclick>
+						<selected>Skin.HasSetting(NoViewBannerFanart)</selected>
+					</control>
+					<!-- View 510 -->
+					<control type="radiobutton" id="614">
+						<description>Banner Poster</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31439]</label>
+						<onclick>Skin.ToggleSetting(NoViewBannerPoster)</onclick>
+						<selected>Skin.HasSetting(NoViewBannerPoster)</selected>
+					</control>
+					<!-- View 52 -->
+					<control type="radiobutton" id="615">
+						<description>Landscape</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31291]</label>
+						<onclick>Skin.ToggleSetting(NoViewLandscape)</onclick>
+						<selected>Skin.HasSetting(NoViewLandscape)</selected>
+					</control>
+					<!-- View 56 -->
+<!--
+					<control type="radiobutton" id="616">
+						<description>Logo</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31054]</label>
+						<onclick>Skin.ToggleSetting(NoViewLogo)</onclick>
+						<selected>Skin.HasSetting(NoViewLogo)</selected>
+					</control>
+-->
+					<!-- View 512 -->
+					<control type="radiobutton" id="617">
+						<description>Coverflow</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[33031]</label>
+						<onclick>Skin.ToggleSetting(NoViewCoverflow)</onclick>
+						<selected>Skin.HasSetting(NoViewCoverflow)</selected>
+					</control>
+					<!-- View 500 -->
+					<control type="radiobutton" id="618">
+						<description>Picture Grid</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31293]</label>
+						<onclick>Skin.ToggleSetting(NoViewPictureGrid)</onclick>
+						<selected>Skin.HasSetting(NoViewPictureGrid)</selected>
+					</control>
+					<!-- View 559 -->
+					<control type="radiobutton" id="619">
+						<description>Panel Square</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31298]</label>
+						<onclick>Skin.ToggleSetting(NoViewPanelSquare)</onclick>
+						<selected>Skin.HasSetting(NoViewPanelSquare)</selected>
+					</control>
+					<!-- View 501 -->
+<!--
+					<control type="radiobutton" id="620">
+						<description>Tall Genre</description>
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31441] $LOCALIZE[31416]</label>
+						<onclick>Skin.ToggleSetting(NoViewTallGenre)</onclick>
+						<selected>Skin.HasSetting(NoViewTallGenre)</selected>
+					</control>
+-->
+				</control>
+				<!-- Home Artwork -->
+				<control type="group">
+					<visible>Container(9000).Hasfocus(4)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<control type="button" id="304">
+						<description>Menu Item Next Button</description>
+						<posx>753</posx>
+						<posy>-9</posy>
+						<width>34</width>
+						<height>55</height>
+						<aligny>center</aligny>
+						<label>-</label>
+						<font>-</font>
+						<texturenofocus>-</texturenofocus>
+						<texturefocus>-</texturefocus>
+						<onclick>Control.Move(9003,1)</onclick>
+						<onleft>9000</onleft>
+						<onright>305</onright>
+						<ondown>300</ondown>
+					</control>
+					<control type="button" id="305">
+						<description>Menu Item Prev Button</description>
+						<posx>787</posx>
+						<posy>-9</posy>
+						<width>34</width>
+						<height>55</height>
+						<aligny>center</aligny>
+						<label>-</label>
+						<font>-</font>
+						<texturenofocus>-</texturenofocus>
+						<texturefocus>-</texturefocus>
+						<onclick>Control.Move(9003,-1)</onclick>
+						<onleft>304</onleft>
+						<ondown>300</ondown>
+					</control>
+					<control type="list" id="9003">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>840</width>
+						<height>38</height>
+						<onleft>9000</onleft>
+						<onup>9003</onup>
+						<ondown>9003</ondown>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>0</scrolltime>
+						<itemlayout height="38" width="840">
+							<control type="image">
+								<width>840</width>
+								<height>38</height>
+								<texture>ButtonFo.png</texture>
+								<visible>[Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<width>840</width>
+								<height>38</height>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<label>$LOCALIZE[31329]</label>
+								<visible>![Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<width>840</width>
+								<height>38</height>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>ButtonText</textcolor>
+								<label>$LOCALIZE[31329]</label>
+								<visible>[Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>730</posx>
+								<width>200</width>
+								<height>38</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>![Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>730</posx>
+								<width>200</width>
+								<height>38</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>ButtonText</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>[Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+						</itemlayout>
+						<focusedlayout height="38" width="840">
+							<control type="image">
+								<width>840</width>
+								<height>38</height>
+								<texture>ButtonFo.png</texture>
+								<visible>[Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<width>840</width>
+								<height>38</height>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<label>$LOCALIZE[31329]</label>
+								<visible>![Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<width>840</width>
+								<height>38</height>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>ButtonText</textcolor>
+								<label>$LOCALIZE[31329]</label>
+								<visible>[Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>730</posx>
+								<width>200</width>
+								<height>38</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>![Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+							<control type="label">
+								<posx>730</posx>
+								<width>200</width>
+								<height>38</height>
+								<align>right</align>
+								<aligny>center</aligny>
+								<font>METF_ContextValue</font>
+								<textcolor>ButtonText</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>[Control.HasFocus(304) | Control.HasFocus(305)]</visible>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="12">
+								<label>Custom Background</label>
+								<onclick>-</onclick>
+								<icon>background.png</icon>
+								<thumb>$INFO[Skin.String(CustomBackground)]</thumb>
+							</item>
+<!--
+							<item id="4">
+								<label>3</label>
+								<onclick>-</onclick>
+								<icon>special://skin/extras/home1/videos.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomVideos)]</thumb>
+							</item>
+-->
+							<item id="1">
+								<label>$LOCALIZE[137]</label>
+								<onclick>-</onclick>
+								<icon>home/search.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomSearch)]</thumb>
+							</item>
+<!--
+							<item id="2">
+								<label>20343</label>
+								<onclick>-</onclick>
+								<icon>home/tvshows.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomTVShows)]</thumb>
+							</item>
+-->
+							<item id="5">
+								<label>1</label>
+								<onclick>-</onclick>
+								<icon>home/pictures.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomPictures)]</thumb>
+							</item>
+							<item id="3">
+								<label>2</label>
+								<onclick>-</onclick>
+								<icon>special://skin/extras/home1/music.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomMusic)]</thumb>
+							</item>
+<!--
+							<item id="13">
+								<label>31334</label>
+								<onclick>-</onclick>
+								<icon>home/trailers.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomTrailers)]</thumb>
+							</item>
+-->
+							<item id="7">
+								<label>Add Channels</label>
+								<onclick>-</onclick>
+								<icon>special://skin/extras/home1/programs.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomAppStore)]</thumb>
+							</item>
+
+							<item id="6">
+								<label>$LOCALIZE[31476]</label>
+								<onclick>-</onclick>
+								<icon>special://skin/extras/home1/programs.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomPrograms)]</thumb>
+							</item>
+<!--
+							<item id="6">
+								<label>8</label>
+								<onclick>-</onclick>
+								<icon>home/weather.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomWeather)]</thumb>
+							</item>
+-->
+							<item id="8">
+								<label>5</label>
+								<onclick>-</onclick>
+								<icon>home/settings.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomSettings)]</thumb>
+							</item>
+<!--
+							<item id="9">
+								<label>1036</label>
+								<onclick>-</onclick>
+								<icon>home/favourites.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomFavourites)]</thumb>
+							</item>
+-->
+							<item id="11">
+								<label>Shutdown</label>
+								<onclick>-</onclick>
+								<icon>special://skin/extras/home1/shutdown.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomShutdown)]</thumb>
+							</item>
+<!--
+							<item id="10">
+								<label>20126</label>
+								<onclick>-</onclick>
+								<icon>home/logoff.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomLogoff)]</thumb>
+							</item>
+							<item id="14">
+								<label>341</label>
+								<onclick>-</onclick>
+								<icon>home/playdisc.jpg</icon>
+								<thumb>$INFO[Skin.String(CustomPlayDisc)]</thumb>
+							</item>
+-->
+						</content>
+					</control>
+					<control type="image">
+						<posx>753</posx>
+						<posy>1</posy>
+						<width>34</width>
+						<height>34</height>
+						<aligny>center</aligny>
+						<texture>ArrowDownNF.png</texture>
+						<visible>!Control.HasFocus(304)</visible>
+					</control>
+					<control type="image">
+						<posx>753</posx>
+						<posy>1</posy>
+						<width>34</width>
+						<height>34</height>
+						<aligny>center</aligny>
+						<texture>ArrowDownFo.png</texture>
+						<visible>Control.HasFocus(304)</visible>
+					</control>
+					<control type="image">
+						<posx>787</posx>
+						<posy>1</posy>
+						<width>34</width>
+						<height>34</height>
+						<aligny>center</aligny>
+						<texture>ArrowUpNF.png</texture>
+						<visible>!Control.HasFocus(305)</visible>
+					</control>
+					<control type="image">
+						<posx>787</posx>
+						<posy>1</posy>
+						<width>34</width>
+						<height>34</height>
+						<aligny>center</aligny>
+						<texture>ArrowUpFo.png</texture>
+						<visible>Control.HasFocus(305)</visible>
+					</control>
+					<control type="image">
+						<posx>124</posx>
+						<posy>114</posy>
+						<width>480</width>
+						<height>306</height>
+						<texture>ButtonFo.png</texture>
+					</control>
+					<control type="group">
+						<posx>95</posx>
+						<posy>57</posy>
+						<control type="group">
+							<visible>Container(9003).HasFocus(12)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomBackground)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomBackground)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomBackground)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(1)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomSearch)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomSearch)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomSearch)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(2)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomTVShows)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomTVShows)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomTVShows)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(3)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomMusic)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomMusic)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomMusic)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(4)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomVideos)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomVideos)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomVideos)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(5)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomPictures)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomPictures)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomPictures)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(6)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomPrograms)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomPrograms)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomPrograms)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(7)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomAppStore)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomAppStore)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomAppStore)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(8)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomSettings)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomSettings)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomSettings)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(9)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomFavourites)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomFavourites)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomFavourites)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(10)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomLogoff)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomLogoff)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomLogoff)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(11)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomShutdown)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomShutdown)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomShutdown)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(13)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomTrailers)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomTrailers)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomTrailers)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Container(9003).HasFocus(14)</visible>
+							<control type="button" id="300">
+								<description>Single Image button</description>
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31275</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetPath(CustomPlayDisc)</onclick>
+								<onleft>302</onleft>
+								<onright>301</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="301">
+								<description>Multi Image button</description>
+								<posx>190</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>31284</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.SetImage(CustomPlayDisc)</onclick>
+								<onleft>300</onleft>
+								<onright>302</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+							<control type="button" id="302">
+								<description>Default Image button</description>
+								<posx>375</posx>
+								<posy>0</posy>
+								<width>180</width>
+								<height>38</height>
+								<label>192</label>
+								<font>METF_ContextValue</font>
+								<textcolor>SettingsDetail</textcolor>
+								<focusedcolor>ButtonText</focusedcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<texturefocus>ButtonFo.png</texturefocus>
+								<onclick>Skin.Reset(CustomPlayDisc)</onclick>
+								<onleft>301</onleft>
+								<onright>300</onright>
+								<onup>304</onup>
+								<ondown>304</ondown>
+							</control>
+						</control>
+					</control>
+					<control type="multiimage">
+						<posx>130</posx>
+						<posy>120</posy>
+						<width>468</width>
+						<height>261</height>
+						<imagepath aligny="top" background="true">$INFO[Container(9003).ListItem.Icon]</imagepath>
+						<timeperimage>4000</timeperimage>
+						<randomize>true</randomize>
+						<fadetime>400</fadetime>
+					</control>
+					<control type="label">
+						<posx>135</posx>
+						<posy>392</posy>
+						<width>468</width>
+						<height>20</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>METF_ContextValue</font>
+						<haspath>yes</haspath>
+						<label fallback="571">$INFO[Container(9003).ListItem.Thumb]</label>
+						<textcolor>ButtonText</textcolor>
+					</control>
+				</control>
+				<!-- Scripts/Extras -->
+				<control type="grouplist" id="9006">
+					<visible>Container(9000).Hasfocus(6)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<control type="button" id="701">
+						<include>SettingsLabel</include>
+						<width>370</width>
+						<label>$LOCALIZE[31319]</label>
+						<label2>$INFO[System.AddonTitle(Skin.String(LyricPath))]</label2>
+						<onclick>Skin.SetAddon(LyricPath,xbmc.python.lyrics)</onclick>
+					</control>
+					<control type="button" id="702">
+						<include>SettingsLabel</include>
+						<width>370</width>
+						<label>$LOCALIZE[31320]</label>
+						<label2>$INFO[System.AddonTitle(Skin.String(SubtitlePath))]</label2>
+						<onclick>Skin.SetAddon(SubtitlePath,xbmc.python.subtitles)</onclick>
+					</control>
+					<control type="image" id="703">
+						<include>Settings_Line</include>
+					</control>
+					<control type="button" id="704">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31126]</label>
+						<onclick>XBMC.RunScript(script.artwork.downloader,mediatype=tvshow, poster, fanart, extrafanart, clearart, clearlogo, tvthumb, banner, characterart, defaultthumb)</onclick>
+					</control>
+					<control type="label" id="705">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31127]</label>
+					</control>
+					<control type="radiobutton" id="706">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31055]</label>
+						<onclick>Skin.ToggleSetting(TV_Panel_Logo)</onclick>
+						<selected>Skin.HasSetting(TV_Panel_Logo)</selected>
+					</control>
+					<control type="radiobutton" id="707">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31296]</label>
+						<onclick>Skin.ToggleSetting(landscape_jpg)</onclick>
+						<selected>Skin.HasSetting(landscape_jpg)</selected>
+					</control>
+					<control type="radiobutton" id="708">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31297]</label>
+						<onclick>Skin.ToggleSetting(banner_jpg)</onclick>
+						<selected>Skin.HasSetting(banner_jpg)</selected>
+					</control>
+					<control type="image" id="709">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="710">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31426]</label>
+						<onclick>Skin.ToggleSetting(NextAired)</onclick>
+						<selected>Skin.HasSetting(NextAired)</selected>
+					</control>
+					<control type="radiobutton" id="711">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31437]</label>
+						<onclick>Skin.ToggleSetting(TvTunes)</onclick>
+						<selected>Skin.HasSetting(TvTunes)</selected>
+					</control>
+				</control>
+				<!-- Video Settings -->
+				<control type="grouplist" id="9011">
+					<visible>Container(9000).Hasfocus(7)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<control type="radiobutton" id="801">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31033]</label>
+						<onclick>Skin.ToggleSetting(HideVideoFanart)</onclick>
+						<selected>Skin.HasSetting(HideVideoFanart)</selected>
+					</control>
+					<control type="image" id="802">
+						<include>Settings_Line</include>
+					</control>
+<!--
+					<control type="radiobutton" id="803">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31421]</label>
+						<onclick>Skin.SetBool(Enable_OSDClearArt)</onclick>
+						<onclick>Skin.Reset(Enable_OSDLogo)</onclick>
+						<onclick>Skin.Reset(Enable_OSDThumbnail)</onclick>
+						<selected>Skin.HasSetting(Enable_OSDClearArt)</selected>
+					</control>
+					<control type="radiobutton" id="804">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31422]</label>
+						<onclick>Skin.SetBool(Enable_OSDLogo)</onclick>
+						<onclick>Skin.Reset(Enable_OSDClearArt)</onclick>
+						<onclick>Skin.Reset(Enable_OSDThumbnail)</onclick>
+						<selected>Skin.HasSetting(Enable_OSDLogo)</selected>
+					</control>
+-->
+					<control type="radiobutton" id="805">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31425]</label>
+						<onclick>Skin.SetBool(Enable_OSDThumbnail)</onclick>
+						<onclick>Skin.Reset(Enable_OSDLogo)</onclick>
+						<onclick>Skin.Reset(Enable_OSDClearArt)</onclick>
+						<selected>Skin.HasSetting(Enable_OSDThumbnail)</selected>
+					</control>
+					<control type="image" id="806">
+						<include>Settings_Line</include>
+					</control>
+<!--
+					<control type="radiobutton" id="807">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31429]</label>
+						<onclick>Skin.ToggleSetting(ShowVideoPath)</onclick>
+						<selected>Skin.HasSetting(ShowVideoPath)</selected>
+					</control>
+-->
+					<control type="radiobutton" id="808">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31436]</label>
+						<onclick>Skin.ToggleSetting(Slim_Seekbar)</onclick>
+						<selected>Skin.HasSetting(Slim_Seekbar)</selected>
+					</control>
+				</control>
+				<!-- Music Settings -->
+				<control type="grouplist" id="9009">
+					<visible>Container(9000).Hasfocus(8)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<control type="radiobutton" id="901">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31033]</label>
+						<onclick>Skin.ToggleSetting(HideMusicFanart)</onclick>
+						<selected>Skin.HasSetting(HideMusicFanart)</selected>
+					</control>
+					<control type="image" id="902">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="903">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31056]</label>
+						<onclick>Skin.ToggleSetting(MusicCoverArtOverlay)</onclick>
+						<selected>Skin.HasSetting(MusicCoverArtOverlay)</selected>
+					</control>
+					<control type="image" id="904">
+						<include>Settings_Line</include>
+					</control>
+					<control type="radiobutton" id="905">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31435]</label>
+						<onclick>Skin.ToggleSetting(Artist_Slideshow)</onclick>
+						<selected>Skin.HasSetting(Artist_Slideshow)</selected>
+					</control>
+				</control>
+				<!-- Picture Settings -->
+				<control type="grouplist" id="9013">
+					<visible>Container(9000).Hasfocus(11)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<control type="radiobutton" id="1101">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31033]</label>
+						<onclick>Skin.ToggleSetting(HidePictureFanart)</onclick>
+						<selected>Skin.HasSetting(HidePictureFanart)</selected>
+					</control>
+				</control>
+				<!-- Debug -->
+				<control type="grouplist" id="9008">
+					<visible>Container(9000).Hasfocus(9)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>840</width>
+					<height>418</height>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<control type="radiobutton" id="1001">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31108]</label>
+						<onclick>Skin.ToggleSetting(DebugMode)</onclick>
+						<selected>Skin.HasSetting(DebugMode)</selected>
+					</control>
+					<control type="radiobutton" id="1002">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31109]</label>
+						<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+						<onclick>XBMC.ReloadSkin()</onclick>
+						<selected>Skin.HasSetting(DebugGrid)</selected>
+					</control>
+					<control type="image" id="1003">
+						<include>Settings_Line</include>
+					</control>
+					<control type="button" id="1004">
+						<include>SettingsLabel</include>
+						<label>$LOCALIZE[31431]</label>
+						<onclick>Skin.ResetSettings</onclick>
+						<onclick>ReloadSkin()</onclick> 
+					</control>
+				</control>
+			</control>
+			<control type="image">
+				<include>Animation_CommonFadeNoHide</include>
+				<posx>848</posx>
+				<posy>72</posy>
+				<height>24</height>
+				<width>24</width>
+				<texture>Arrow2Up.png</texture>
+				<visible>[Container(9000).Hasfocus(2) + Container(9002).HasPrevious] | [Container(9000).Hasfocus(5) + Container(9005).HasPrevious]</visible>
+			</control>
+			<control type="image">
+				<include>Animation_CommonFadeNoHide</include>
+				<posx>848</posx>
+				<posy>524</posy>
+				<height>24</height>
+				<width>24</width>
+				<texture>Arrow2Down.png</texture>
+				<visible>[Container(9000).Hasfocus(2) + Container(9002).HasNext] | [Container(9000).Hasfocus(5) + Container(9005).HasNext]</visible>
+			</control>
+		</control>
+		<include>Global_ContextFilter</include>
+		<include>Global_Time</include>
+		<include>GlobalMusic</include>
+		<include>Setting_Heading</include>
+		<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
+		<include condition="Skin.HasSetting(DebugMode)">Debug</include>
+	</controls>
+</window>
