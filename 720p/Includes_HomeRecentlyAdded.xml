@@ -104,7 +104,7 @@
 				<font>METF_RecentlyAddedTitle</font>
 				<textcolor>HomeMenuText</textcolor>
 				<label>[B]$LOCALIZE[20387][/B]  </label>
-				<visible>Container(11000).ListItem(0).Type(episode) + Control.IsVisible(11000) + [Control.HasFocus(11000) | Control.HasFocus(300)] + !Skin.HasSetting(ShowRandomItems)</visible>
+				<visible>[Container(11000).ListItem(0).Type(season) | Container(11000).ListItem(0).Type(episode)] + Control.IsVisible(11000) + [Control.HasFocus(11000) | Control.HasFocus(300)] + !Skin.HasSetting(ShowRandomItems)</visible>
 			</control>
 			<!-- In Progress Movies -->
 			<control type="label">
@@ -202,7 +202,7 @@
 					<bordertexture border="6">frames/thumb_border.png</bordertexture>
 					<bordersize>8</bordersize>
 					<fadetime>100</fadetime>
-					<visible>[!Skin.HasSetting(home2) + [Control.HasFocus(11000) | Control.HasFocus(300)] + Container(11000).ListItem.Type(movie)] + Control.IsVisible(11000)</visible> 
+					<visible>[!Skin.HasSetting(home2) + [Control.HasFocus(11000) | Control.HasFocus(300)] + [Container(11000).ListItem(0).Type(season) | Container(11000).ListItem.Type(movie)]] + Control.IsVisible(11000)</visible> 
 				</control>
 				<control type="image">
 					<animation type="Visible" reversible="false">
@@ -324,7 +324,7 @@
 
 			<control type="group">
 				<visible allowhiddenfocus="true">[Control.HasFocus(300) | Control.HasFocus(11000)] + !Control.HasFocus(11001) + Control.IsVisible(11000)</visible>
-				<visible>[Container(11000).ListItem(0).Type(movie) | Container(11000).ListItem(0).Type(episode) | Container(11000).ListItem(0).Type(album)]</visible>
+				<visible>[Container(11000).ListItem(0).Type(movie) | Container(11000).ListItem(0).Type(episode) | Container(11000).ListItem(0).Type(season) | Container(11000).ListItem(0).Type(album)]</visible>
 				<include>Animation_OpenCloseFade</include>
 				<include>Animation_FadedByMenu</include>
 				<animation effect="slide" start="0,0" end="100,0" time="0" condition="Container(11000).ListItem.Type(episode)">Conditonal</animation>
@@ -471,6 +471,22 @@
 				<font>METF_RecentlyAddedListText</font>
 				<textcolor>RecentlyAddedNF</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>!Container(11000).ListItem.Type(season)</visible>
+			</control>
+			<control type="label">
+				<posx>10</posx>
+				<posy>-2</posy>
+				<width>500</width>
+				<height>27</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>600</pauseatend>
+				<scrollspeed>20</scrollspeed>
+				<font>METF_RecentlyAddedListText</font>
+				<textcolor>RecentlyAddedNF</textcolor>
+				<label>$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label]</label>
+				<visible>Container(11000).ListItem.Type(season)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout width="510" height="27">
@@ -497,6 +513,22 @@
 				<font>METF_RecentlyAddedListText</font>
 				<textcolor>FocusBarText</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>!Container(11000).ListItem.Type(season)</visible>
+			</control>
+			<control type="label">
+				<posx>10</posx>
+				<posy>-2</posy>
+				<width>500</width>
+				<height>27</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>600</pauseatend>
+				<scrollspeed>20</scrollspeed>
+				<font>METF_RecentlyAddedListText</font>
+				<textcolor>FocusBarText</textcolor>
+				<label>$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label]</label>
+				<visible>Container(11000).ListItem.Type(season)</visible>
 			</control>
 		</focusedlayout>
 	</include>
