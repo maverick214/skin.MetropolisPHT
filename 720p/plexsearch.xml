@@ -391,7 +391,7 @@
 		
    </control>
 
-			<control type="label" id="310">
+			<control type="edit" id="310">
 				<posx>0</posx>
 				<posy>25</posy>
 				<font>METF_RecentlyAddedTitle</font>
