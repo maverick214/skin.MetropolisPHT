@@ -146,7 +146,7 @@
 					</control>
 					<!-- Episode Count for Seasons -->
 					<control type="label">
-						<posx>780</posx>
+						<posx>710</posx>
 						<posy>-2</posy>
 						<width>120</width>
 						<height>35</height>
@@ -297,7 +297,7 @@
 					</control>
 					<!-- Episode Count for Seasons -->
 					<control type="label">
-						<posx>780</posx>
+						<posx>710</posx>
 						<posy>-2</posy>
 						<width>120</width>
 						<height>35</height>
