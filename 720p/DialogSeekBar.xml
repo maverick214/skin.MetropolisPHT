@@ -1,4 +1,4 @@
-﻿<window id="115">
+<window id="115">
 	<defaultcontrol>901</defaultcontrol>
 	<visible>Window.IsActive(fullscreenvideo) + !Window.IsActive(videoosd) + !Window.IsActive(fullscreeninfo) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]</visible>
 	<controls>
@@ -30,8 +30,8 @@
 				<textcolor>TextNF</textcolor>
 				<label>$INFO[VideoPlayer.Plot]</label>
 				<autoscroll time="4000" delay="16000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
-				<visible>!IsEmpty(VideoPlayer.Plot) + Player.Paused + !Skin.HasSetting(Slim_Seekbar)</visible>
-			</control> -->
+				<visible>!IsEmpty(VideoPlayer.Plot) + !Skin.HasSetting(Slim_Seekbar)</visible>
+			</control>
 		</control>
 		<!-- Director -->
 		<control type="grouplist">

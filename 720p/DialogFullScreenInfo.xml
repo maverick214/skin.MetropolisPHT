@@ -1,4 +1,4 @@
-﻿<window id="142">
+<window id="142">
 	<defaultcontrol>2</defaultcontrol>
 	<controls>
 		<control type="group">
@@ -26,7 +26,7 @@
 				<label>$INFO[VideoPlayer.Plot]</label>
 				<autoscroll time="4000" delay="16000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
 				<visible>!IsEmpty(VideoPlayer.Plot)</visible>
-			</control> -->
+			</control>
 		</control>
 		<!-- Director -->
 		<control type="grouplist">
